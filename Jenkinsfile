@@ -6,7 +6,7 @@ pipeline {
   stages {
     stage('Checkout') {
       steps {
-        git branch: 'test', url: 'https://github.com/lenox-isindu/gallery.git'
+        git branch: 'master', url: 'https://github.com/lenox-isindu/gallery.git'
       }
     }
     stage('Install') {
