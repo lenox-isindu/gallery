@@ -14,8 +14,8 @@ let image = require('./routes/image');
 
 // connecting the database
 mongoose.connect(mongoURI, { useNewUrlParser: true, useUnifiedTopology: true })
-  .then(() => console.log(`✅ Connected to MongoDB Atlas (${env})`))
-  .catch(err => console.error('❌ MongoDB connection error:', err));
+  .then(() => console.log(`Connected to MongoDB Atlas (${env})`))
+  .catch(err => console.error(' MongoDB connection error:', err));
 
 // Initializing the app
 const app = express();

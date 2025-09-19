@@ -1,0 +1,22 @@
+pipeline {
+  agent any
+  stages {
+    stage('Checkout') {
+      steps {
+        git branch: 'main', url: 'https://github.com/lenox-isindu/gallery.git'
+      }
+    }
+    stage('Install') {
+      steps {
+        sh 'npm install'
+      }
+    }
+    stage('Deploy to Render') {
+      steps { 
+        withCredentials([string(credentialsId: 'RENDER_HOOK_URL', variable: 'HOOK')]) {
+          sh 'curl -X POST "$HOOK"'
+        }
+      }
+    }
+  }
+}
